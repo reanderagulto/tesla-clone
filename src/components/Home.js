@@ -1,38 +1,23 @@
 import React from 'react'
 import styled from 'styled-components';
 import Section from './Section';
+import carsInfo from '../data/carInfo.json';
 
 function Home() {
   return (
     <Container>
-        <Section 
-            title="Model S"
-            description="Order Online for Touchless Delivery"
-            backgroundImg="model-s.jpg"
-            leftBtnText="Custom Order"
-            rightBtnText="Existing Inventory"
-        />
-        <Section 
-            title="Model Y"
-            description="Order Online for Touchless Delivery"
-            backgroundImg="model-y.jpg"
-            leftBtnText="Custom Order"
-            rightBtnText="Existing Inventory"
-        />
-        <Section 
-            title="Model X"
-            description="Order Online for Touchless Delivery"
-            backgroundImg="model-x.jpg"
-            leftBtnText="Custom Order"
-            rightBtnText="Existing Inventory"
-        />
-        <Section 
-            title="Model 3"
-            description="Order Online for Touchless Delivery"
-            backgroundImg="model-3.jpg"
-            leftBtnText="Custom Order"
-            rightBtnText="Existing Inventory"
-        />
+        {
+            carsInfo && carsInfo.map((car, index) => (
+                <Section 
+                    key = { index }
+                    title={ car.title }
+                    description={ car.description }
+                    backgroundImg={ car.image }
+                    leftBtnText="Custom Order"
+                    rightBtnText="Existing Inventory"
+                />
+            ))
+        }
         <Section 
             title="Lowest Cost Solar Panels In America"
             description="Money-back Guarantee"
